@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Str;
+$DATABASE_URL = parse_url('postgres://lawnkunxqgrrue:ecc2536e14166d6d1ac8981334d18417a836c555524733c3d45e56211bc64118@ec2-23-23-151-191.compute-1.amazonaws.com:5432/d16r5um0oku8to');
 
 return [
+
+    /*HEROKU*/
 
     /*
     |--------------------------------------------------------------------------
@@ -48,7 +51,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
+            'database' => ltrim($DATABASE_URL["path"], "/"),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
